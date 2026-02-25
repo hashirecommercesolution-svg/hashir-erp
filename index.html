@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hashir E-Commerce Solution | Master Cloud v25</title>
+    <title>Hashir E-Commerce Solution | Cloud Enterprise</title>
     
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- PROFESSIONAL LIQUID GLASS & MOBILE OPTIMIZATION --- */
         :root {
             --glass: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.15);
@@ -40,15 +39,14 @@
             color: white !important;
         }
 
-        header { padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--glass-border); margin-bottom: 1.5rem; background: rgba(15, 23, 42, 0.8) !important; }
+        header { padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; margin-bottom: 1.5rem; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); }
         .app-container { display: none; padding: 0 1.5rem 2rem 1.5rem; max-width: 1600px; margin: 0 auto; }
 
-        /* Stats Cards */
         .master-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
         .master-card { padding: 1.5rem; border-radius: 16px; border-left: 5px solid var(--primary) !important; }
         .master-card.month { border-left-color: var(--success) !important; }
         .master-card.expense-card { border-left-color: var(--danger) !important; }
-        
+
         .card-title { font-size: 0.75rem; opacity: 0.7; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
         .order-badge { background: var(--primary); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; }
 
@@ -57,141 +55,120 @@
         .stat-val { font-size: 1.4rem; font-weight: 800; letter-spacing: -1px; }
         .profit-glow { color: var(--success) !important; text-shadow: 0 0 12px rgba(16, 185, 129, 0.4); }
 
-        /* Account Banners (Admin Only) */
         .banner-row { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; margin-bottom: 2rem; scrollbar-width: none; }
         .banner { min-width: 360px; border-radius: 12px; padding: 1.25rem; }
         .banner h4 { font-size: 0.85rem; color: var(--primary); margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; font-weight: 800; }
         .banner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
         .b-box { background: rgba(255,255,255,0.05); padding: 8px; border-radius: 8px; text-align: center; }
         .b-box span { font-size: 0.55rem; color: rgba(255,255,255,0.5); font-weight: 700; display: block; text-transform: uppercase; }
-        .b-box b { font-size: 0.8rem; color: white; }
 
-        /* Search area */
         .search-area { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap; }
         .search-input-wrap { flex: 1; position: relative; min-width: 250px; }
         .search-input-wrap i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); opacity: 0.5; }
         .search-input-wrap input { padding-left: 42px !important; width: 100%; }
 
-        input, select { background: rgba(255, 255, 255, 0.05) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; color: white !important; padding: 12px; border-radius: 8px; outline: none; transition: 0.3s; }
-        input:focus { border-color: var(--primary) !important; }
+        input, select { background: rgba(255, 255, 255, 0.05) !important; border: 1px solid rgba(255, 255, 255, 0.1) !important; color: white !important; padding: 12px; border-radius: 8px; outline: none; }
 
         .main-grid { display: grid; grid-template-columns: 1fr 380px; gap: 1.5rem; }
         .panel { padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; }
         .field { margin-bottom: 1rem; }
         .field label { font-size: 0.65rem; font-weight: 800; opacity: 0.5; text-transform: uppercase; display: block; margin-bottom: 5px; }
 
-        /* Table */
         .table-wrap { margin-top: 1.5rem; border-radius: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { width: 100%; border-collapse: collapse; min-width: 1100px; text-align: left; }
         th { background: rgba(255,255,255,0.05); padding: 15px; font-size: 0.65rem; text-transform: uppercase; color: rgba(255,255,255,0.5); }
         td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; }
-        tr:hover { background: rgba(255,255,255,0.03); }
 
-        .btn { padding: 12px 24px; border-radius: 10px; border: none; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; background: var(--primary); color: white; font-family: inherit; }
+        .btn { padding: 10px 20px; border-radius: 10px; border: none; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; background: var(--primary); color: white; font-family: inherit; }
         .btn-outline { background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; }
         .btn-sm { padding: 8px 16px; font-size: 0.7rem; }
-        .btn-payout { border-color: var(--primary); color: var(--primary); font-size: 0.75rem; padding: 6px 12px; margin-left: 15px; }
 
-        #toast { position: fixed; bottom: 20px; right: 20px; background: var(--slate-800); color: white; padding: 14px 28px; border-radius: 10px; display: none; z-index: 3000; border: 1px solid var(--glass-border); font-weight: 700; }
         #auth-screen { position: fixed; inset: 0; background: #0f172a; display: flex; align-items: center; justify-content: center; z-index: 2000; }
         .login-card { padding: 2.5rem; border-radius: 20px; width: 380px; text-align: center; }
 
-        /* Loader */
-        #loader { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 4000; align-items: center; justify-content: center; flex-direction: column; }
-        .spinner { width: 40px; height: 40px; border: 4px solid var(--primary); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        @media (max-width: 1024px) { .main-grid, .master-stats { grid-template-columns: 1fr !important; } }
+        @media (max-width: 768px) { .main-grid, .master-stats { grid-template-columns: 1fr !important; } }
+        
+        #loader { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 3000; align-items: center; justify-content: center; flex-direction: column; }
     </style>
 </head>
 <body>
 
-    <!-- Loading Animation -->
     <div id="loader">
-        <div class="spinner"></div>
-        <p style="margin-top: 15px; font-weight: 800; letter-spacing: 1px;">SYNCING WITH GOOGLE SHEETS...</p>
+        <div style="width: 40px; height: 40px; border: 4px solid var(--primary); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        <p style="margin-top: 10px; font-weight: 800;">SYNCING WITH CLOUD...</p>
     </div>
 
-    <!-- Login Layer -->
     <div id="auth-screen">
-        <div class="login-card glass-element">
+        <div class="login-card">
             <h2 style="margin-bottom: 2rem; font-weight: 800; letter-spacing: -1px;">Hashir Command</h2>
             <div class="field" style="text-align: left;"><label>Account ID</label><input type="text" id="login-acc"></div>
-            <div class="field" style="text-align: left;"><label>Password</label><input type="password" id="login-pass" placeholder="••••••••"></div>
-            <button class="btn" style="width: 100%;" onclick="handleLogin()">Login Dashboard</button>
+            <div class="field" style="text-align: left;"><label>Password</label><input type="password" id="login-pass"></div>
+            <button class="btn" style="width: 100%;" onclick="handleLogin()">Login to Dashboard</button>
         </div>
     </div>
 
-    <!-- Main Application UI -->
     <div id="app-content" style="display:none;">
         <header>
             <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="background: var(--primary); color: white; padding: 10px; border-radius: 12px; font-weight: 900; box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);">H</div>
                 <h1 style="font-size: 1.1rem; font-weight: 800;">Hashir E-Commerce Solution</h1>
-                
-                <!-- REQUIREMENT: Payout in Header -->
-                <button class="btn btn-outline btn-sm btn-payout" onclick="triggerPayout()">
+                <button class="btn btn-sm btn-outline" style="margin-left: 10px; border-color: var(--primary);" onclick="triggerPayout()">
                     <i data-lucide="wallet" style="width:14px"></i> Payout
                 </button>
             </div>
             <div style="display: flex; gap: 1rem; align-items: center;">
-                <span id="user-display" style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--primary); background: rgba(255,255,255,0.05); padding: 4px 12px; border-radius: 20px;"></span>
+                <span id="user-display" style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--primary);"></span>
                 <button onclick="location.reload()" class="btn btn-sm btn-outline"><i data-lucide="log-out" style="width:14px"></i></button>
             </div>
         </header>
 
         <div class="app-container" style="display:block;">
             
-            <!-- Global / Personal Dashboard -->
             <div class="master-stats">
-                <div class="master-card today glass-element">
-                    <div class="card-title">Today Commands <span class="order-badge" id="orders-today">0 Orders</span></div>
+                <div class="master-card today">
+                    <div class="card-title">Combined Today <span class="order-badge" id="orders-today">0 Orders</span></div>
                     <div class="card-row">
                         <div><span class="stat-label">Total Sale</span><h2 class="stat-val" id="sale-today">$0.00</h2></div>
                         <div style="text-align: right;"><span class="stat-label">Net Profit</span><h2 class="stat-val profit-glow" id="profit-today">$0.00</h2></div>
                     </div>
                 </div>
-                <div class="master-card month glass-element">
-                    <div class="card-title">Monthly Health <span class="order-badge" id="orders-month">0 Orders</span></div>
+                <div class="master-card month">
+                    <div class="card-title">Combined Monthly <span class="order-badge" id="orders-month">0 Orders</span></div>
                     <div class="card-row">
-                        <div><span class="stat-label">Monthly Sale</span><h2 class="stat-val" id="sale-month">$0.00</h2></div>
+                        <div><span class="stat-label">Total Sale</span><h2 class="stat-val" id="sale-month">$0.00</h2></div>
                         <div style="text-align: right;"><span class="stat-label">Net Profit</span><h2 class="stat-val profit-glow" id="profit-month">$0.00</h2></div>
                     </div>
                 </div>
-                <!-- REQUIREMENT: Private Expense Tracker Card (Admin Only) -->
-                <div class="master-card expense-card glass-element" id="admin-expense-card" style="display:none;">
-                    <div class="card-title">Office Expense <i data-lucide="shield" style="width:12px; opacity:0.5"></i></div>
+                <div class="master-card expense-card" id="admin-expense-card" style="display:none;">
+                    <div class="card-title">Office Expenses <i data-lucide="info" style="width:12px; cursor:pointer"></i></div>
                     <div class="card-row">
-                        <div><span class="stat-label">Expense Month</span><h2 class="stat-val" id="total-exp-val">$0.00</h2></div>
-                        <div style="text-align: right;"><span class="stat-label">Wallet Balance</span><h2 class="stat-val" id="final-wallet-val" style="color:var(--warning)">$0.00</h2></div>
+                        <div><span class="stat-label">Monthly Expenses</span><h2 class="stat-val" id="exp-month">$0.00</h2></div>
+                        <div style="text-align: right;"><span class="stat-label">Wallet Balance</span><h2 class="stat-val profit-glow" id="final-balance" style="color:var(--warning) !important">$0.00</h2></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Admin Banner Row -->
             <div id="admin-banner-view">
-                <h3 style="font-size: 0.8rem; margin-bottom: 12px; color: rgba(255,255,255,0.5); font-weight: 800; text-transform: uppercase;">Monitor System</h3>
                 <div class="banner-row" id="banner-area"></div>
             </div>
 
             <div class="search-area">
                 <div class="search-input-wrap">
-                    <i data-lucide="search"></i>
-                    <input type="text" id="master-search" placeholder="Search ID, Worker, Item, or Date..." onkeyup="refreshUI()">
+                    <i data-lucide="search" style="width:18px"></i>
+                    <input type="text" id="master-search" placeholder="Search orders, workers, items..." onkeyup="refreshUI()">
                 </div>
                 <button class="btn btn-outline" onclick="generateMasterReport()"><i data-lucide="download" style="width:18px"></i> Extract Master Sheet</button>
             </div>
 
             <div class="main-grid">
-                <!-- Transaction Entry (Instant) -->
-                <div class="panel glass-element">
-                    <h3 id="form-mode" style="font-size: 0.95rem; font-weight: 800; margin-bottom: 1.5rem;">New Transaction Entry</h3>
+                <div class="panel">
+                    <h3 style="font-size: 0.95rem; font-weight: 800; margin-bottom: 1rem;">Transaction Entry</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <div class="field"><label>Date</label><input type="date" id="entry-date"></div>
                         <div class="field"><label>Worker</label><input type="text" id="entry-acc" readonly></div>
                         <div class="field"><label>Order ID</label><input type="text" id="entry-id"></div>
-                        <div class="field"><label>Product Details</label><input type="text" id="entry-item"></div>
-                        <div class="field"><label>Purchase Price</label><input type="number" id="entry-cost" step="0.01"></div>
+                        <div class="field"><label>Item</label><input type="text" id="entry-item"></div>
+                        <div class="field"><label>Purchase Cost</label><input type="number" id="entry-cost" step="0.01"></div>
                         <div class="field"><label>Sale Price</label><input type="number" id="entry-sale" step="0.01"></div>
                         <div class="field" style="grid-column: span 2;">
                             <label>Status</label>
@@ -206,27 +183,23 @@
                     <button class="btn" style="width: 100%; margin-top: 1rem;" onclick="saveTransaction()">Cloud Sync Save</button>
                 </div>
 
-                <!-- Side Panels (Admin Private) -->
                 <div class="side-panels">
-                    <div class="panel glass-element" id="admin-panel" style="display:none;">
-                        <h3 style="font-size: 0.8rem; font-weight: 800; opacity: 0.5; text-transform: uppercase; margin-bottom: 1rem;">Access Control</h3>
-                        <div class="field"><input type="text" id="new-name" placeholder="ID"><input type="text" id="new-pass" placeholder="Password"></div>
+                    <div class="panel" id="admin-panel" style="display:none;">
+                        <h3 style="font-size: 0.8rem; font-weight: 800; opacity: 0.5; text-transform: uppercase; margin-bottom: 1rem;">Access Management</h3>
+                        <div class="field"><input type="text" id="new-name" placeholder="ID"><input type="text" id="new-pass" placeholder="Pass"></div>
                         <button class="btn btn-success btn-sm" style="width: 100%;" onclick="addUser()">Create Account</button>
                         <div id="user-list" style="margin-top: 1rem; max-height: 200px; overflow-y: auto;"></div>
                     </div>
-
-                    <!-- REQUIREMENT: Office Expense Tracker (Admin Only) -->
-                    <div class="panel glass-element" id="admin-expense-panel" style="display:none; border-top: 4px solid var(--danger) !important;">
-                        <h3 style="font-size: 0.8rem; font-weight: 800; color: var(--danger); text-transform: uppercase; margin-bottom: 1rem;">Office Expense Tracker</h3>
-                        <div class="field"><label>Description</label><input type="text" id="exp-desc" placeholder="Internet, Bills, Rent"></div>
+                    <div class="panel" id="admin-expense-panel" style="display:none; border-top: 4px solid var(--danger) !important;">
+                        <h3 style="font-size: 0.8rem; font-weight: 800; color: var(--danger); text-transform: uppercase; margin-bottom: 1rem;">Private Office Expense</h3>
+                        <div class="field"><label>Description</label><input type="text" id="exp-desc" placeholder="Rent, Bill, etc."></div>
                         <div class="field"><label>Amount ($)</label><input type="number" id="exp-amt"></div>
                         <button class="btn btn-outline btn-sm" style="width: 100%;" onclick="saveExpense()">Record Expense</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Detailed Log -->
-            <div class="table-wrap glass-element">
+            <div class="table-wrap panel">
                 <table>
                     <thead>
                         <tr>
@@ -239,26 +212,22 @@
         </div>
     </div>
 
-    <div id="toast"></div>
-
     <script>
-        // GOOGLE APPS SCRIPT URL INTEGRATED
-        const API_URL = "https://script.google.com/macros/s/AKfycbzYPYzyRHzIY4b5XDqVSk0n2CQ4BSolJIskKvFgkmWhpVUJMWhnADo4mHqxg6PnphGDGg/exec";
+        const API_URL = "https://script.google.com/macros/s/AKfycbzjGVipMOAMAI_II_NrSwawWedrHIifn59T2lCCarrduhHiN-IQlOTEXeZbVINvcKjz8A/exec";
 
         let db = { orders: [], expenses: [], users: [] };
         let session = null;
 
-        // --- AUTHENTICATION & DATA FETCH ---
         async function handleLogin() {
-            const acc = document.getElementById('login-acc').value;
-            const pass = document.getElementById('login-pass').value;
+            const accInput = document.getElementById('login-acc').value.trim();
+            const passInput = document.getElementById('login-pass').value.trim();
             
             showLoader(true);
             try {
                 const response = await fetch(API_URL);
                 db = await response.json();
                 
-                const user = db.users.find(u => u.username === acc && u.password.toString() === pass);
+                const user = db.users.find(u => u.username.toString() === accInput && u.password.toString() === passInput);
                 
                 if(user) {
                     session = user;
@@ -273,23 +242,24 @@
                         document.getElementById('admin-expense-card').style.display = 'block';
                     }
                     refreshUI();
-                } else { alert("Access Denied: Wrong Credentials."); }
-            } catch (err) { alert("Connectivity Error: Cannot reach Google Cloud."); }
+                } else {
+                    alert("Invalid Credentials. Please check Users tab in Sheet.");
+                }
+            } catch (e) {
+                alert("Connection Error. Check Apps Script Deployment.");
+            }
             showLoader(false);
             lucide.createIcons();
         }
 
-        // --- CLOUD SYNC ENGINE ---
-        async function cloudSync(payload) {
+        async function cloudSync(data) {
             showLoader(true);
             try {
-                // Post to Google Sheet
                 await fetch(API_URL, {
                     method: 'POST',
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify(data)
                 });
-                
-                // Fetch latest data after 2 seconds (allow sheet time to process)
+                // Short delay for Google Sheet to update
                 setTimeout(async () => {
                     const response = await fetch(API_URL);
                     db = await response.json();
@@ -297,34 +267,30 @@
                     showLoader(false);
                 }, 2000);
             } catch (e) {
-                alert("Cloud Sync Interrupted.");
+                alert("Sync Failed.");
                 showLoader(false);
             }
         }
 
-        // --- TRANSACTION LOGIC ---
         function saveTransaction() {
             const d = document.getElementById('entry-date').value;
             const id = document.getElementById('entry-id').value.trim();
             const cost = parseFloat(document.getElementById('entry-cost').value);
             const sale = parseFloat(document.getElementById('entry-sale').value);
             
-            if(!id || isNaN(cost) || isNaN(sale)) return alert("Incomplete Data Error.");
+            if(!id || isNaN(cost) || isNaN(sale)) return alert("Please fill all fields");
             
-            // Duplicate Check
-            if(db.orders.some(o => o.id === id)) return alert("Duplicate Prevention: Order ID already exists.");
-
             cloudSync({
                 type: 'ADD_ORDER', date: d, acc: session.username, id: id, item: document.getElementById('entry-item').value,
-                cost: cost, sale: sale, profit: (sale - cost).toFixed(2), roi: (cost>0 ? ((sale-cost)/cost)*100 : 0).toFixed(2),
+                cost: cost, sale: sale, profit: sale - cost, roi: (cost>0 ? ((sale-cost)/cost)*100 : 0).toFixed(2),
                 status: document.getElementById('entry-status').value, ts: new Date(d).getTime()
             });
-            // Clear inputs
-            ['entry-id', 'entry-item', 'entry-cost', 'entry-sale'].forEach(id => document.getElementById(id).value = "");
+            // Clear fields
+            ['entry-id', 'entry-item', 'entry-cost', 'entry-sale'].forEach(i => document.getElementById(i).value = "");
         }
 
         function triggerPayout() {
-            const amt = prompt("Enter Bank Payout Amount ($):");
+            const amt = prompt("Enter Payout Amount ($):");
             if(amt && !isNaN(amt)) {
                 cloudSync({
                     type: 'ADD_PAYOUT', date: new Date().toISOString().split('T')[0],
@@ -336,7 +302,7 @@
         function saveExpense() {
             const desc = document.getElementById('exp-desc').value;
             const amt = parseFloat(document.getElementById('exp-amt').value);
-            if(!desc || isNaN(amt)) return alert("Missing Expense Information.");
+            if(!desc || isNaN(amt)) return alert("Missing data");
             
             cloudSync({
                 type: 'ADD_EXPENSE', date: new Date().toISOString().split('T')[0],
@@ -345,24 +311,23 @@
             document.getElementById('exp-desc').value = ""; document.getElementById('exp-amt').value = "";
         }
 
-        // --- RENDER DASHBOARD ---
         function refreshUI() {
             const query = document.getElementById('master-search').value.toLowerCase();
-            const todayStr = new Date().toISOString().split('T')[0];
-            const startMonthTs = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime();
+            const today = new Date().toISOString().split('T')[0];
+            const startMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1).getTime();
 
             let visibleOrders = session.role === 'admin' ? db.orders : db.orders.filter(o => o.acc === session.username);
-            let filtered = visibleOrders.filter(o => o.id.toString().includes(query) || o.acc.toLowerCase().includes(query));
+            let filtered = visibleOrders.filter(o => o.id.toString().toLowerCase().includes(query) || o.acc.toString().toLowerCase().includes(query));
 
-            const calc = (arr) => ({
+            const calculate = (arr) => ({
                 sale: arr.reduce((a,b)=>a+(parseFloat(b.sale)||0),0),
                 profit: arr.reduce((a,b)=>a+(parseFloat(b.profit)||0),0),
                 payout: arr.reduce((a,b)=>a+(parseFloat(b.payout)||0),0),
                 count: arr.filter(o => o.id !== "PAYOUT").length
             });
 
-            const tS = calc(filtered.filter(o => o.date === todayStr));
-            const mS = calc(filtered.filter(o => o.ts >= startMonthTs));
+            const tS = calculate(filtered.filter(o => o.date === today));
+            const mS = calculate(filtered.filter(o => o.ts >= startMonth));
 
             document.getElementById('sale-today').innerText = `$${tS.sale.toFixed(2)}`;
             document.getElementById('profit-today').innerText = `$${tS.profit.toFixed(2)}`;
@@ -372,27 +337,22 @@
             document.getElementById('orders-month').innerText = `${mS.count} Orders`;
 
             if(session.role === 'admin') {
-                const totalExp = db.expenses.filter(e => e.ts >= startMonthTs).reduce((a,b)=>a+parseFloat(b.amount),0);
-                const totalAllPayout = db.orders.filter(o => o.ts >= startMonthTs).reduce((a,b)=>a+(parseFloat(b.payout)||0),0);
-                const totalAllProfit = db.orders.filter(o => o.ts >= startMonthTs).reduce((a,b)=>a+(parseFloat(b.profit)||0),0);
-                
-                document.getElementById('total-exp-val').innerText = `$${totalExp.toFixed(2)}`;
-                document.getElementById('final-wallet-val').innerText = `$${(totalAllProfit - totalExp - totalAllPayout).toFixed(2)}`;
+                const totalExp = db.expenses.filter(e => e.ts >= startMonth).reduce((a,b)=>a+parseFloat(b.amount),0);
+                document.getElementById('exp-month').innerText = `$${totalExp.toFixed(2)}`;
+                document.getElementById('final-balance').innerText = `$${(mS.profit - totalExp - mS.payout).toFixed(2)}`;
 
-                // Account Banners
                 const bArea = document.getElementById('banner-area');
                 bArea.innerHTML = db.users.filter(u => u.role !== 'admin').map(u => {
                     const uO = db.orders.filter(o => o.acc === u.username);
-                    const ds = calc(uO.filter(o => o.date === todayStr));
-                    const ms = calc(uO.filter(o => o.ts >= startMonthTs));
+                    const ds = calculate(uO.filter(o => o.date === today));
+                    const ms = calculate(uO.filter(o => o.ts >= startMonth));
                     return `<div class="banner">
                         <h4>${u.username}</h4>
                         <div class="banner-grid">
                             <div class="b-box"><span>D-Sale</span><b>$${ds.sale.toFixed(0)}</b></div>
-                            <div class="b-box"><span>D-Profit</span><b style="color:var(--success)">$${ds.profit.toFixed(0)}</b></div>
+                            <div class="b-box"><span>D-Profit</span><b>$${ds.profit.toFixed(0)}</b></div>
                             <div class="b-box"><span>M-Sale</span><b>$${ms.sale.toFixed(0)}</b></div>
-                            <div class="b-box"><span>M-Profit</span><b style="color:var(--success)">$${ms.profit.toFixed(0)}</b></div>
-                            <div class="b-box"><span>M-Orders</span><b>${ms.count}</b></div>
+                            <div class="b-box"><span>M-Profit</span><b>$${ms.profit.toFixed(0)}</b></div>
                             <div class="b-box"><span>Balance</span><b>$${(ms.profit - ms.payout).toFixed(0)}</b></div>
                         </div>
                     </div>`;
@@ -402,53 +362,32 @@
             document.getElementById('log-body').innerHTML = filtered.slice().reverse().map(o => `
                 <tr style="${o.id === 'PAYOUT' ? 'background:rgba(99,102,241,0.1)' : ''}">
                     <td>${o.date}</td>
-                    ${session.role === 'admin' ? `<td><b style="color:var(--primary)">${o.acc}</b></td>` : ''}
+                    ${session.role === 'admin' ? `<td><b>${o.acc}</b></td>` : ''}
                     <td><b>${o.id}</b></td>
-                    <td>$${parseFloat(o.cost).toFixed(2)}</td><td>$${parseFloat(o.sale).toFixed(2)}</td>
-                    <td class="profit-glow">$${parseFloat(o.profit).toFixed(2)}</td>
-                    <td>${o.status}</td>
-                    <td>
-                        <button class="btn-outline btn-sm" onclick="deleteEntry('${o.id}')"><i data-lucide=\"trash-2\" style=\"width:12px\"></i></button>
-                    </td>
+                    <td>$${(parseFloat(o.cost)||0).toFixed(2)}</td>
+                    <td>$${(parseFloat(o.sale)||0).toFixed(2)}</td>
+                    <td class="profit-glow">$${(parseFloat(o.profit)||0).toFixed(2)}</td>
+                    <td>${o.status || 'Success'}</td>
+                    <td><button class="btn-outline btn-sm" onclick="deleteEntry('${o.id}')"><i data-lucide="trash-2" style="width:12px"></i></button></td>
                 </tr>`).join('');
             lucide.createIcons();
         }
 
-        // --- ACCOUNT MANAGEMENT ---
         async function deleteEntry(id) {
-            if(prompt("Security Check: Password required to delete entry:") === session.password.toString()) {
+            if(confirm("Delete this entry?")) {
                 cloudSync({type: 'DELETE_ORDER', id: id});
-            } else { alert("Verification Failed."); }
-        }
-
-        function addUser() {
-            const n = document.getElementById('new-name').value.trim();
-            const p = document.getElementById('new-pass').value.trim();
-            if(n && p) {
-                cloudSync({type: 'ADD_USER', username: n, password: p});
-                document.getElementById('new-name').value = ""; document.getElementById('new-pass').value = "";
             }
         }
 
-        // --- REQUIREMENT: MASTER REPORT WITH PAYOUT & EXPENSE ---
         function generateMasterReport() {
-            let csv = "Date,Account,OrderID,Item,Cost,Sale,Profit,Payout,OfficeExpense,Status\n";
-            let visibleOrders = session.role === 'admin' ? db.orders : db.orders.filter(o => o.acc === session.username);
-            
-            visibleOrders.forEach(o => {
-                csv += `${o.date},${o.acc},${o.id},"${o.item || 'N/A'}",${o.cost},${o.sale},${o.profit},${o.payout || 0},0,${o.status}\n`;
+            let csv = "Date,Account,OrderID,Item,Cost,Sale,Profit,Payout,Status\n";
+            db.orders.forEach(o => {
+                csv += `${o.date},${o.acc},${o.id},"${o.item}",${o.cost},${o.sale},${o.profit},${o.payout},${o.status}\n`;
             });
-
-            if(session.role === 'admin') {
-                db.expenses.forEach(e => {
-                    csv += `${e.date},ADMIN,EXPENSE,"${e.description}",0,0,0,0,${e.amount},OFFICE_EXPENSE\n`;
-                });
-            }
-
             const b = new Blob([csv], { type: 'text/csv' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(b);
-            a.download = `Hashir_Full_Report_${new Date().toLocaleDateString()}.csv`;
+            a.download = `Report_${new Date().toLocaleDateString()}.csv`;
             a.click();
         }
 
